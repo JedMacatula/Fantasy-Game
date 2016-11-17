@@ -1,0 +1,137 @@
+package fantasygame;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.scene.shape.Line;
+
+public class DisplayClass extends Application 
+{
+    Pane boardPane = new Pane();
+    Pane menuPane = new Pane();
+    Pane loginPane = new Pane();
+    
+    @Override
+    public void start(Stage primaryStage) 
+    {
+        for(int index = 0; index < 780; index = index + 30)
+        {
+            Line myHorizontalLine = new Line(0, index, 750, index);
+            Line myVerticalLine = new Line(index, 0, index, 750);
+            boardPane.getChildren().addAll(myHorizontalLine, myVerticalLine);
+        }
+        
+        Scene boardScene = new Scene(boardPane, 750, 750);
+        primaryStage.setTitle("Fantasy Game");
+        primaryStage.setScene(boardScene);
+        primaryStage.show();
+        
+        Scene menuScene = new Scene(menuPane, 350, 100);
+        primaryStage = new Stage();
+        primaryStage.setTitle("Choose Action");
+        primaryStage.setScene(menuScene);
+        primaryStage.show();
+        
+        Scene loginScene = new Scene(loginPane, 350, 100);
+        primaryStage = new Stage();
+        primaryStage.setTitle("Login");
+        primaryStage.setScene(loginScene);
+        primaryStage.show();
+        
+        Button confirmButton = new Button("Confirm");
+        confirmButton.setLayoutX(20);
+        confirmButton.setLayoutY(10);
+        loginPane.getChildren().add(confirmButton);
+        confirmButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                loginPane.getChildren().remove(confirmButton);
+            }
+        });
+        
+        Button moveButton = new Button("Move");
+        moveButton.setLayoutX(20);
+        moveButton.setLayoutY(10);
+        moveButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        Button searchButton = new Button("Attack");
+        searchButton.setLayoutX(20);
+        searchButton.setLayoutY(50);
+        searchButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        Button healButton = new Button("Heal");
+        healButton.setLayoutX(100);
+        healButton.setLayoutY(10);
+        healButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        Button giveButton = new Button("Give");
+        giveButton.setLayoutX(100);
+        giveButton.setLayoutY(50);
+        giveButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        Button attackButton = new Button("Attack");
+        attackButton.setLayoutX(165);
+        attackButton.setLayoutY(10);
+        attackButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        Button learnLightningBoltButton = new Button("Learn Lightning Bolt");
+        learnLightningBoltButton.setLayoutX(165);
+        learnLightningBoltButton.setLayoutY(50);
+        learnLightningBoltButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        menuPane.getChildren().addAll(moveButton, searchButton, giveButton, attackButton, healButton, learnLightningBoltButton);
+    }
+
+    public static void main(String[] args) 
+    {
+        launch(args);
+    } 
+}
