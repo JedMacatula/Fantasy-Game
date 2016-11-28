@@ -1,0 +1,123 @@
+package fantasygame;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import javafx.scene.shape.Line;
+
+public class DisplayClass extends Application 
+{
+    BorderPane mainPane = new BorderPane();
+    Pane menuPane = new Pane();
+    Pane loginPane = new Pane();
+    Button confirmButton = new Button("Confirm");
+    Button moveButton = new Button("Move");
+    Button searchButton = new Button("Attack");
+    Button healButton = new Button("Heal");
+    Button giveButton = new Button("Give");
+    Button attackButton = new Button("Attack");
+    Button learnLightningBoltButton = new Button("Learn Lightning Bolt");
+    
+    @Override
+    public void start(Stage primaryStage) 
+    {
+        for(int index = 0; index < 780; index = index + 30)
+        {
+            Line myHorizontalLine = new Line(0, index, 750, index);
+            Line myVerticalLine = new Line(index, 0, index, 750);
+            mainPane.getChildren().addAll(myHorizontalLine, myVerticalLine);
+        }
+        
+        Scene boardScene = new Scene(mainPane, 750, 850);
+        primaryStage.setTitle("Fantasy Game");
+        primaryStage.setScene(boardScene);
+        primaryStage.show();
+        
+        confirmButton.setLayoutX(20);
+        confirmButton.setLayoutY(10);
+        confirmButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                loginPane.getChildren().remove(confirmButton);
+            }
+        });
+        
+        moveButton.setLayoutX(20);
+        moveButton.setLayoutY(10);
+        moveButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        searchButton.setLayoutX(20);
+        searchButton.setLayoutY(50);
+        searchButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        healButton.setLayoutX(100);
+        healButton.setLayoutY(10);
+        healButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        giveButton.setLayoutX(100);
+        giveButton.setLayoutY(50);
+        giveButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        attackButton.setLayoutX(165);
+        attackButton.setLayoutY(10);
+        attackButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        learnLightningBoltButton.setLayoutX(165);
+        learnLightningBoltButton.setLayoutY(50);
+        learnLightningBoltButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+    }
+
+    public static void main(String[] args) 
+    {
+        launch(args);
+    } 
+}
