@@ -21,11 +21,22 @@ public class DisplayClass extends Application
     Pane boardPane = new Pane();
     GridPane piecesPane = new GridPane();
     HBox menuPane = new HBox(75);
+    HBox moveMenuPane = new HBox(50);
+    HBox healMenuPane = new HBox(50);
+    HBox giveMenuPane = new HBox(50);
+    HBox attackMenuPane = new HBox(50);
     Pane loginPane = new Pane();
     Text emailText = new Text(95, 115, "Email:");
-    Text WelcomeText = new Text(180, 65, "Welcome");
+    Text welcomeText = new Text(180, 65, "Welcome");
+    Text moveText = new Text("Select Direction:");
+    Text searchText;
+    Text healGiveAttackText = new Text("Select Target:");
     Button emailButton = new Button("Confirm");
     Button moveButton = new Button("Move");
+    Button upButton = new Button("Up");
+    Button downButton = new Button("Down");
+    Button leftButton = new Button("Left");
+    Button rightButton = new Button("Right");
     Button searchButton = new Button("Search");
     Button healButton = new Button("Heal");
     Button giveButton = new Button("Give");
@@ -55,8 +66,8 @@ public class DisplayClass extends Application
             boardPane.add(myHorizontalLine, 0, index);
         }*/
         
-        mainPane.setCenter(boardPane);
-        mainPane.setBottom(menuPane);
+        mainPane.setTop(boardPane);
+        mainPane.setCenter(menuPane);
         
         Scene loginScene = new Scene(loginPane, 400, 200);
         primaryStage.setTitle("Login");
@@ -72,7 +83,7 @@ public class DisplayClass extends Application
             @Override
             public void handle(ActionEvent event) 
             {
-                Scene boardScene = new Scene(mainPane, 750, 775);
+                Scene boardScene = new Scene(mainPane, 750, 800);
                 primaryStage.setTitle("Fantasy Game");
                 primaryStage.setScene(boardScene);
                 primaryStage.show();
@@ -80,9 +91,16 @@ public class DisplayClass extends Application
             }
         });
         
-        moveButton.setLayoutX(20);
-        moveButton.setLayoutY(10);
         moveButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                mainPane.setBottom(moveMenuPane);
+            }
+        });
+        
+        upButton.setOnAction(new EventHandler<ActionEvent>() 
         {
             @Override
             public void handle(ActionEvent event) 
@@ -91,8 +109,33 @@ public class DisplayClass extends Application
             }
         });
         
-        searchButton.setLayoutX(20);
-        searchButton.setLayoutY(50);
+        downButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        leftButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
+        rightButton.setOnAction(new EventHandler<ActionEvent>() 
+        {
+            @Override
+            public void handle(ActionEvent event) 
+            {
+                
+            }
+        });
+        
         searchButton.setOnAction(new EventHandler<ActionEvent>() 
         {
             @Override
@@ -102,41 +145,33 @@ public class DisplayClass extends Application
             }
         });
         
-        healButton.setLayoutX(100);
-        healButton.setLayoutY(10);
         healButton.setOnAction(new EventHandler<ActionEvent>() 
         {
             @Override
             public void handle(ActionEvent event) 
             {
-                
+                mainPane.setBottom(healMenuPane);
             }
         });
         
-        giveButton.setLayoutX(100);
-        giveButton.setLayoutY(50);
         giveButton.setOnAction(new EventHandler<ActionEvent>() 
         {
             @Override
             public void handle(ActionEvent event) 
             {
-                
+                mainPane.setBottom(giveMenuPane);
             }
         });
         
-        attackButton.setLayoutX(165);
-        attackButton.setLayoutY(10);
         attackButton.setOnAction(new EventHandler<ActionEvent>() 
         {
             @Override
             public void handle(ActionEvent event) 
             {
-                
+                mainPane.setBottom(attackMenuPane);
             }
         });
         
-        learnLightningBoltButton.setLayoutX(165);
-        learnLightningBoltButton.setLayoutY(50);
         learnLightningBoltButton.setOnAction(new EventHandler<ActionEvent>() 
         {
             @Override
@@ -147,7 +182,12 @@ public class DisplayClass extends Application
         });
         
         menuPane.getChildren().addAll(moveButton, searchButton, healButton, giveButton, attackButton, learnLightningBoltButton);
-        loginPane.getChildren().addAll(WelcomeText, emailText, emailButton, emailTextField);
+        loginPane.getChildren().addAll(welcomeText, emailText, emailButton, emailTextField);
+        moveMenuPane.getChildren().addAll(moveText, upButton, downButton, leftButton, rightButton);
+        healMenuPane.getChildren().add(healGiveAttackText);
+        giveMenuPane.getChildren().add(healGiveAttackText);
+        attackMenuPane.getChildren().add(healGiveAttackText);
+                
     }
 
     public static void main(String[] args) 
